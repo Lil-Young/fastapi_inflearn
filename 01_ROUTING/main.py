@@ -1,0 +1,17 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+	return {"message": "Hello, FastAPI"}
+
+@app.get("/items/{item_id}")
+def read_item(item_id):
+	return {"item_id": item_id}
+
+@app.get("/items/")
+def read_items(skip, limit):
+	return {"skip": skip, "limit": limit}
+
+# uvicorn main:app --reload 로 실행
