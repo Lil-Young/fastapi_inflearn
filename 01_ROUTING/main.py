@@ -11,7 +11,7 @@ def read_item(item_id):
 	return {"item_id": item_id}
 
 @app.get("/items/")
-def read_items(skip, limit):
+def read_items(skip = 0, limit = 10):
 	return {"skip": skip, "limit": limit}
 
 # uvicorn main:app --reload 로 실행
